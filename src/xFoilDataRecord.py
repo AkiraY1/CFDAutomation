@@ -20,5 +20,4 @@ for dir in DIR:
                 writer_object.writerow(d)
             file.close()
 
-
 #Must manually insert Cl/Cd, delete empty rows and add Reynold's number and Mach number
