@@ -55,4 +55,4 @@ for dir in DIRS:
         ps.stdin.close()
         print(name)
 
-#Go through all files didn't go through yet
+#Go through all files didn't go through
