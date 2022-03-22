@@ -1,8 +1,8 @@
 import subprocess as sp
 import time, os, csv
 
-DIRS = [r"C:\Users\Akira\Desktop\CFD_Automation\uiuc2", r"C:\Users\Akira\Desktop\CFD_Automation\uiuc"]
-#Done: r"C:\Users\Akira\Desktop\CFD_Automation\uiuc2" r"C:\Users\Akira\Desktop\CFD_Automation\uiuc" r"C:\Users\Akira\Desktop\CFD_Automation\delft", r"C:\Users\Akira\Desktop\CFD_Automation\delft2"
+DIRS = [r"C:\Users\Akira\Desktop\CFD_Automation\delft", r"C:\Users\Akira\Desktop\CFD_Automation\delft2"]
+#Done: r"C:\Users\Akira\Desktop\CFD_Automation\uiuc" r"C:\Users\Akira\Desktop\CFD_Automation\uiuc2" r"C:\Users\Akira\Desktop\CFD_Automation\delft", r"C:\Users\Akira\Desktop\CFD_Automation\delft2"
 
 good = True
 
@@ -22,16 +22,18 @@ for dir in DIRS:
                     l = line.decode()
                     try:
                         thickness = float(l[16:31])
+                        thicknessPos = float(l[37:])
                     except:
                         good = False
                 if "camber".encode() in line:
                     l = line.decode()
                     try:
                         camber = float(l[16:31])
+                        camberPos = float(l[37:])
                     except:
                         good = False
             if good:
                 writer_object = csv.writer(sheet, lineterminator = '\n')
-                writer_object.writerow([f.removesuffix(".dat"), thickness, camber])
+                writer_object.writerow([f.removesuffix(".dat"), thickness, thicknessPos, camber, camberPos])
             sheet.close()
         good = True
