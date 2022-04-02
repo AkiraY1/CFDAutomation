@@ -2,8 +2,6 @@ from csv import writer
 import os
 
 DIR = ["C:\\Users\\Akira\\Desktop\\CFD_Automation\\uiuc_polars", "C:\\Users\\Akira\\Desktop\\CFD_Automation\\uiuc2_polars"]
-#"C:\\Users\\Akira\\Desktop\\CFD_Automation\\uiuc_polars"
-#"C:\\Users\\Akira\\Desktop\\CFD_Automation\\uiuc2_polars"
 
 #Getting data from text file
 for dir in DIR:
@@ -19,5 +17,3 @@ for dir in DIR:
                 print(d)
                 writer_object.writerow(d)
             file.close()
-
-#Must manually insert Cl/Cd, delete empty rows and add Reynold's number and Mach number
